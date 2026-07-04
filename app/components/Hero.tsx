@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getForecast, getHistory } from "../lib/forecast-source";
 import { LotusMotif } from "./LotusMotif";
 import { VerdictCard } from "./VerdictCard";
@@ -90,6 +91,31 @@ export async function Hero() {
             Sending money home instead? Sen works both ways — switch on the
             card.
           </p>
+
+          {/* A real family, not a stat — the people every good-day nudge is
+              for. Small framed print with a handwritten-feel caption. */}
+          <figure className="mt-8 flex items-center gap-4">
+            <div className="shrink-0 -rotate-3 rounded-[10px] border-[5px] border-card bg-card shadow-[var(--shadow-lift)]">
+              <Image
+                src="/family-moment.png"
+                alt="A mother and her university-aged daughter looking at a phone together at home"
+                width={124}
+                height={100}
+                className="h-[100px] w-[124px] rounded-[5px] object-cover"
+                priority
+              />
+            </div>
+            <figcaption className="text-[14px] leading-snug text-muted">
+              <span
+                lang="vi"
+                className="mb-0.5 block text-[16px] italic text-jade-deep"
+                style={{ fontFamily: "var(--font-accent)" }}
+              >
+                “Con gái đang học ở Sydney.”
+              </span>
+              Families like Cô Hằng&apos;s already time their fees with Sen.
+            </figcaption>
+          </figure>
         </div>
 
         <div className="relative">

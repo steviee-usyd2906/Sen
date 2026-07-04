@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BrandMark } from "./BrandMark";
 
 // A word from a parent, presented as the object every family with someone
@@ -51,12 +52,13 @@ export function Testimonial() {
             </blockquote>
 
             <div className="flex items-center gap-3 border-t border-dashed border-line-strong pt-5">
-              <div
-                className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-jade font-display font-bold text-white"
-                aria-hidden="true"
-              >
-                H
-              </div>
+              <Image
+                src="/portrait-hang.png"
+                alt="Cô Hằng, a Sen customer whose daughter studies in Sydney"
+                width={46}
+                height={46}
+                className="h-[46px] w-[46px] shrink-0 rounded-full object-cover ring-2 ring-jade/20"
+              />
               <div className="text-left text-[14px]">
                 <b className="block font-bold" lang="vi">
                   Cô Hằng
