@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Sen design tokens — warm ivory paper, deep jade green, gold.
+   Deliberately NOT fintech blue. Mirrors sen-fx-website.html.
+   ============================================================ */
+@theme {
+  --color-paper: #faf6ed;
+  --color-paper-2: #f3ecdc;
+  --color-ink: #16241d;
+  --color-jade: #0f5d49;
+  --color-jade-deep: #0a4537;
+  --color-jade-bright: #1c8a68;
+  --color-gold: #d89a2a;
+  --color-gold-deep: #9a6c12;
+  --color-clay: #bc5340;
+  --color-card: #ffffff;
+  --color-line: #e7dfcc;
+  --color-line-strong: #d8cdae;
+  /* Darkened from #5e6b62 for older readers — the primary audience is
+     parents; secondary text needs comfortably >7:1 contrast on paper. */
+  --color-muted: #4c594f;
+
+  /* Fonts are loaded with next/font in app/layout.tsx.
+     Playfair Display = display/headlines · Be Vietnam Pro = body ·
+     Lora = secondary/accent serif (bilingual taglines, editorial notes). */
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-accent: var(--font-lora), Georgia, serif;
+
+  --shadow-lift: 0 18px 40px -22px rgba(16, 40, 30, 0.35);
+  --radius-card: 22px;
+}
+
+@utility wrap {
+  width: min(1140px, 92vw);
+  margin-inline: auto;
+}
+
+@utility eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-jade);
+  font-weight: 700;
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 999px;
+  padding: 13px 22px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+@utility btn-primary {
+  background: var(--color-jade);
+  color: #fff;
+  box-shadow: 0 10px 22px -12px rgba(15, 93, 73, 0.8);
+}
+
+@utility btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1.5px solid var(--color-line-strong);
+}
+
+@utility btn-sm {
+  padding: 9px 16px;
+  font-size: 14px;
+}
+
+/* Par-avion envelope edge — the red/jade airmail stripe every Vietnamese
+   family abroad recognises. Used as a thin frame (padding = stripe width). */
+@utility airmail {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-clay) 0 9px,
+    #fffdf8 9px 18px,
+    var(--color-jade) 18px 27px,
+    #fffdf8 27px 36px
+  );
+}
+
+@utility card {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lift);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Layered paper: fine grain + two soft light washes (gold from the
+       top-right, jade from the left) over the ivory base — so the
+       background reads as warm paper, never a flat fill. */
+    background-color: var(--color-paper);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+      radial-gradient(1100px 700px at 88% -8%, rgba(216, 154, 42, 0.09), transparent 60%),
+      radial-gradient(950px 720px at -12% 34%, rgba(28, 138, 104, 0.07), transparent 62%);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: rgba(216, 154, 42, 0.35);
+  }
+
+  /* Visible keyboard focus across interactive elements. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-jade);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Button hover/active states (utilities above can't carry pseudo-classes). */
+  .btn-primary:hover {
+    background: var(--color-jade-deep);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
