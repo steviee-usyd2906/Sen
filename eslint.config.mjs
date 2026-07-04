@@ -12,7 +12,9 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    ignores: [".next/**", "node_modules/**", "next-env.d.ts"],
+    // INFO2222/ is the reference project the security implementation was
+    // adapted from — it has its own toolchain and is not part of this app.
+    ignores: [".next/**", "node_modules/**", "next-env.d.ts", "INFO2222/**"],
   },
 ];
 

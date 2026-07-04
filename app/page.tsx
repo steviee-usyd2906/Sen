@@ -6,7 +6,6 @@ import { HowItWorks } from "./components/HowItWorks";
 import { Features } from "./components/Features";
 import { MarketBrief } from "./components/MarketBrief";
 import { Testimonial } from "./components/Testimonial";
-import { Pricing } from "./components/Pricing";
 import { Faq } from "./components/Faq";
 import { ClosingCta } from "./components/ClosingCta";
 import { SiteFooter } from "./components/SiteFooter";
@@ -23,7 +22,6 @@ export default function Home() {
         <Features />
         <MarketBrief />
         <Testimonial />
-        <Pricing />
         <Faq />
         <ClosingCta />
       </main>

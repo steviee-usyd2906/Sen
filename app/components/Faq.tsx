@@ -19,8 +19,8 @@ const QUESTIONS = [
     a: "Australian dollars and Vietnamese đồng — both directions: paying fees in Australia, or sending money home to Việt Nam. It's the pair we know best.",
   },
   {
-    q: "Is it really free to start?",
-    a: "Yes. The daily read and forecast are free, with no card needed. Plus adds deadline watch and real-time alerts when you're ready.",
+    q: "Is Sen free?",
+    a: "Yes — the daily read, forecasts, deadline watch, and alerts are all free. No card, no subscription.",
   },
 ];
 
